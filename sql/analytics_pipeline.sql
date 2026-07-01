@@ -6,7 +6,7 @@
 -- ============================================================================
 
 -- ----------------------------------------------------------------------------
--- TASK 1 & 2: Structural Pipeline, Feature Extraction, and Global Aggregates
+-- Structural Pipeline, Feature Extraction, and Global Aggregates
 -- ----------------------------------------------------------------------------
 
 -- Context: Merging device attributes with metrics to evaluate global volume, 
@@ -42,10 +42,10 @@ FROM joined_data;
 
 
 -- ----------------------------------------------------------------------------
--- TASK 3: Segmentation Matrix (Device Type, Temporal Buckets, and Geography)
+-- Segmentation Matrix (Device Type, Temporal Buckets, and Geography)
 -- ----------------------------------------------------------------------------
 
--- Step A: Performance breakdown mapped by Device Structural Form Factors
+-- Performance breakdown mapped by Device Structural Form Factors
 WITH joined_data AS (
     SELECT a.device_type, b.energy_savings_yr, b.co2_saved_kg_yr
     FROM intel.device_data a
@@ -60,7 +60,7 @@ FROM joined_data
 GROUP BY device_type;
 
 
--- Step C: Performance breakdown mapped by Temporal Lifespan Categorizations
+-- Performance breakdown mapped by Temporal Lifespan Categorizations
 WITH joined_data AS (
     SELECT 
         (2024 - a.model_year) AS device_age,
@@ -84,7 +84,7 @@ GROUP BY device_age_bucket
 ORDER BY avg_energy_savings_kwh DESC;
 
 
--- Step E: Performance breakdown mapped by Geographical Region
+-- Performance breakdown mapped by Geographical Region
 WITH joined_data AS (
     SELECT b.region, b.energy_savings_yr, b.co2_saved_kg_yr
     FROM intel.device_data a
@@ -100,7 +100,7 @@ GROUP BY region;
 
 
 -- ----------------------------------------------------------------------------
--- LEVEL UP: Advanced Proportional Projections within Regional Clusters
+-- Advanced Proportional Projections within Regional Clusters
 -- ----------------------------------------------------------------------------
 
 -- Evaluates internal percentage contribution metrics for device groups 
