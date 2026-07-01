@@ -1,0 +1,8 @@
+# Exclude raw data tracking sheets
+*.csv
+*.xlsx
+*.dat
+
+# Exclude temporary system files
+.DS_Store
+Thumbs.db
