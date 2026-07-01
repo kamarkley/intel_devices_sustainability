@@ -1,0 +1,1 @@
+# intel_devices_sustainability
